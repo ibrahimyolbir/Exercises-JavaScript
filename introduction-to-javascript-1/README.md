@@ -11,9 +11,4 @@
 - ###### for ( initialization; condition; increment) { … }
 - ###### while (condition) { … }
 - ###### Funktioner - function myFunction(a, b) { … }
-### Introduction to javascript 2
-
-- ###### Objects
-- ###### DOM
-- ###### QuerySelector
-- ###### Events
+ 
