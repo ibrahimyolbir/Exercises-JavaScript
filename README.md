@@ -1,4 +1,9 @@
-##### - Variabler - var x
+# Exercises-JavaScript
+
+------------
+
+
+##### - Variabler - var x  
 ##### - Nummer - 1, 5, 100, -10, 0.5
 ##### - Booleans - true, false
 ##### - Strings - “Hello world”
