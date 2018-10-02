@@ -164,17 +164,24 @@
 //==================================================================================================================//
 //==========Skriv en funktion reverseString(str) som tar en sträng, str, och returnerar strängen baklänges reverseString(“Hello”); // “olleH”
 //==================================================================================================================//
-function reverseString(str) {
-    var result ;
-    for (var i = str.length; i > 0; i--) {
-        console.log(str[i]);
-        result += str[i];
-    }
-    return result;
-}
-var reversed = reverseString("Hello");
-
+//******************************************************//
+//***************** 1.METHOD****************************//
+//******************************************************//
+// function reverseString(str) {
+//     var result ="";
+//     for (var i = str.length -1; i >= 0; i--) {
+//         result += str[i];
+//     }
+//     return result;
+// }
+//******************************************************//
+//***************** 2.METHOD****************************//
+//******************************************************//
+// var reversed = reverseString("Hello");
+// console.log(reversed);
 // function reverseString(str) {
 //     return str.split("").reverse().join("");
 // }
 // console.log(reverseString("Hello"));
+
+ 
