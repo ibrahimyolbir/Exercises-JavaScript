@@ -68,58 +68,132 @@
 //========== Pangram Excercies
 //==================================================================================================================//
 
+// var ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split("");
 
-// function pangram(sentece){
-//     var trimed = sentece.replace(/\s/g,'');
-//     console.log(trimed);       
+
+// function pangram(senteNce) {
+//     var trimed = senteNce.replace(/\s/g, '');
+//     console.log(trimed);
 //     var lowerCase = trimed.toLowerCase();
-//     console.log(lowerCase);
-//     var splited = lowerCase.split("");
-//     console.log(splited);    
-//     var sorted = splited.sort();
-//     console.log(sorted);
-//     var joined = sorted.join("");
-//     console.log(joined);
+//     var sentenceArray = lowerCase.split("");
+//     console.log(sentenceArray);
 
-// var word = 'abcdefghijklmnopqrstuvwxyz';
-// console.log(word);
 
-//     if(joined === word){
-//         console.log('true');
+//     for (let i = 0; i < sentenceArray.length; i++) {
+//         var isPangram = false;
+//         for (let j = 0; j < ALPHABET.length; j++) {
+//             if (sentenceArray[i] == ALPHABET[j]) {
+//                 isPangram = true;
+//                 break;
 
+//             }
+//         }
+//         if (!isPangram) {
+//             break;
+//         }
 //     }
+//     return isPangram;
+
 
 // }
-// pangram('The quick brown fox jumps over the lazy dog')
+// pangram('The quick brown fox jumps over the lazy dog');
+// console.log("1 = " + pangram('The quick brown fox jumps over the lazy dog'));
+// console.log("2 = " + pangram('The quööööick brown fox jumps over the lazy dog'));
+
 //==================================================================================================================//
 //========== Range Excercies
 //==================================================================================================================//
 
 // **************Write a function range that takes two number arguments, ****************************
 //**************start and end, and returns an array with all numbers from start to end.**************
-function range(a, b) {
-    for (var i = a; i < b; i++) {
-        var range = i;
-        console.log(range);
-    }
-}
-range(4, 10);
+// function range(a, b) {
+//     for (var i = a; i < b; i++) {
+//         var range = i;
+//         console.log(range);
+//     }
+// }
+// range(4, 10);
 
 // **************Write a function sum that takes an array of numbers and returns the summed value.****************************
 
-function sum([a,b,c]){
+// function sum(numbers) {
 
-return [a+b+c];
+//     if ( Array.isArray(numbers)){
+//         total = 0;
+//         for (var i = 0; i < numbers.length; i++) {
+//             total +=  numbers[i];
+//         }
+//         return total;
+//     } else {
+//         console.log("Please provite an Array.");
+//     return null;    
+//     }
 
+
+// }
+// console.log(sum([1, 2, 3]));
+// console.log(sum([5, 7, 9,11,56]));
+// console.log(sum([])); 
+// console.log(sum(""));
+// console.log(sum(null));
+// console.log(sum(-1));
+
+
+// function rangeSum(x, y) {
+//     var total = 0;
+//     for (var i = x; i < y; i++) {
+//         total += i;
+//     }
+//     console.log(total);
+// }
+
+// rangeSum(1, 4);
+// rangeSum(5, 20);
+// rangeSum(1, 1000);
+
+
+//ödev: verilen cumlede rakam kontrulu programini yaz.
+//alpabeyi map data yapaisini kllanrak yap bir onceki ornegi (set)
+
+var ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split("");
+var charCodeArray = [];
+function transformWord(type, sentence, shiftNumber) {
+    var arraySentence = sentence.split("");
+    var encodeArray = [];
+    if (type == "ENCODE") {
+        for (let i = 0; i < arraySentence.length; i++) {
+            encodeArray[i] = String.fromCharCode(arraySentence[i].charCodeAt(0) - shiftNumber);
+        }
+        return encodeArray;
+    } else if (type == "DECODE") {
+        for (let i = 0; i < arraySentence.length; i++) {
+            encodeArray[i] = String.fromCharCode(arraySentence[i].charCodeAt(0) + shiftNumber);
+        }
+        return encodeArray;
+    } else {
+        console.log("Hatali Giris yaptiniz.");
+    }
 }
 
-console.log(sum([1,2,3]));
 
-function rangeSum(x,y) {
-    for(var i = x; i < y; i++)
-    console.log(i);
- 
-
+function ceasarChiper() {
+    for (var i = 0; i < ALPHABET.length; i++) {
+        charCodeArray[i] = String.fromCharCode(ALPHABET[i].charCodeAt(0));
+        console.log(charCodeArray[i]);
+        console.log(ALPHABET[i].charCodeAt(0));
+    }
 }
 
-rangeSum(1,4);
+
+ceasarChiper()
+
+console.log(transformWord("ENCODE", "helin", 3));
+console.log(transformWord("x", "helin", 3));
+console.log(transformWord("DECODE", "ebifk", 3));
+
+
+//  H  = E  
+//  E  = B
+//  L  = I
+//  I  = F
+//  N  = K
