@@ -68,17 +68,39 @@
 
 // }
 
-function onClick(e) {
- 
-    var btn = document.getElementById("myInpt").value;
-     document.getElementById("myBtn").value = btn;
+// function onClick(e) {
 
-    console.log(btn);
-    console.log(myBtn);
-    
-    
+//     var btn = document.getElementById("myInpt").value;
+
+//      document.getElementById("myBtn").value = btn;
+
+//     console.log(btn);
+//     console.log(myBtn); 
+
+
+// }
+
+// document.querySelector('#myBtn').addEventListener('click', onClick);
+
+
+var elements = document.querySelectorAll('.header_div  a');
+for (let i = 0; i < elements.length; i++) {
+    elements[i].addEventListener('click', openTab);
 }
 
-document.querySelector('#myBtn').addEventListener('click', onClick);
+function openTab(e) {
+    var divs = document.querySelectorAll('.main_div .inner_div div');
+    for (let i = 0; i < divs.length; i++) {
 
+        var idHead = event.target.getAttribute("data-tab");
+        if (idHead === divs[i].id) {
+            console.log("true");
+            divs[i].style.display = 'block';
+
+        } else {
+            console.log("false");
+            divs[i].style.display = 'none';
+        }
+    }
+}
 

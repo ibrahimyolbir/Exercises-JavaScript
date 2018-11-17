@@ -1,210 +1,26 @@
 
-//==================================================================================================================//
-//========== Triangle Excercies
-//==================================================================================================================//
+let firstDate = new Date("7/01/2018");
+let lastDate = new Date("8/31/2018");
 
-// function triangle(){
+let getDateArray = function (first, last) {
+    let arr = [];
+    let dt = new Date(first);
 
-//     for(var i = 0; i < 8; i++){
-//         tria = "";
-//         for(var x=0; x < i; x++){
-//           tria = tria + "#"  
-//         }
-//         console.log(tria);    
-//     }
-//     return tria ;
-// }
-// triangle()
-//==================================================================================================================//
-//========== Word count Excercies
-//==================================================================================================================//
-
-// function wordCount(count) {
-//     var sum = count.split(" ");
-//     var number=0;
-//     for (var i = 0; i < sum.length; i++) {
-//         number = sum.length;
-//         console.log(number);
-//     }
-// return number;
-// }
-// wordCount("Hello World ibo");
-
-//==================================================================================================================//
-//========== Palindrom Excercies
-//==================================================================================================================//
-
-
-// function palindrom(word) {
-//     var lowerCase = word.toLowerCase();
-//     console.log(lowerCase);
-//     var splited = lowerCase.split("");
-//     console.log(splited);
-//     var reversed = splited.reverse();
-//     console.log(reversed);
-//     var joined = splited.join("");
-//     console.log(joined);
-//     if (joined === lowerCase){
-//         console.log("TRUE");
-
-//     }else{
-//         console.log("FALSE");
-//     }
-// }
-// palindrom("Step on no pets")
-
-//==================================================================================================================//
-//========== Adder Excercies
-//==================================================================================================================//
-// function myFunction(){
-//     var a = prompt("Enter first number");
-//     var b = prompt("Enter second number");
-//     alert("Result " + a + b);
-// }
-
-// myFunction()
-
-//==================================================================================================================//
-//========== Pangram Excercies
-//==================================================================================================================//
-
-// var ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split("");
-
-
-// function pangram(senteNce) {
-//     var trimed = senteNce.replace(/\s/g, '');
-//     console.log(trimed);
-//     var lowerCase = trimed.toLowerCase();
-//     var sentenceArray = lowerCase.split("");
-//     console.log(sentenceArray);
-
-
-//     for (let i = 0; i < sentenceArray.length; i++) {
-//         var isPangram = false;
-//         for (let j = 0; j < ALPHABET.length; j++) {
-//             if (sentenceArray[i] == ALPHABET[j]) {
-//                 isPangram = true;
-//                 break;
-
-//             }
-//         }
-//         if (!isPangram) {
-//             break;
-//         }
-//     }
-//     return isPangram;
-
-
-// }
-// pangram('The quick brown fox jumps over the lazy dog');
-// console.log("1 = " + pangram('The quick brown fox jumps over the lazy dog'));
-// console.log("2 = " + pangram('The quööööick brown fox jumps over the lazy dog'));
-
-//==================================================================================================================//
-//========== Range Excercies
-//==================================================================================================================//
-
-// **************Write a function range that takes two number arguments, ****************************
-//**************start and end, and returns an array with all numbers from start to end.**************
-// function range(a, b) {
-//     for (var i = a; i < b; i++) {
-//         var range = i;
-//         console.log(range);
-//     }
-// }
-// range(4, 10);
-
-// **************Write a function sum that takes an array of numbers and returns the summed value.****************************
-
-// function sum(numbers) {
-
-//     if ( Array.isArray(numbers)){
-//         total = 0;
-//         for (var i = 0; i < numbers.length; i++) {
-//             total +=  numbers[i];
-//         }
-//         return total;
-//     } else {
-//         console.log("Please provite an Array.");
-//     return null;    
-//     }
-
-
-// }
-// console.log(sum([1, 2, 3]));
-// console.log(sum([5, 7, 9,11,56]));
-// console.log(sum([])); 
-// console.log(sum(""));
-// console.log(sum(null));
-// console.log(sum(-1));
-
-
-// function rangeSum(x, y) {
-//     var total = 0;
-//     for (var i = x; i < y; i++) {
-//         total += i;
-//     }
-//     console.log(total);
-// }
-
-// rangeSum(1, 4);
-// rangeSum(5, 20);
-// rangeSum(1, 1000);
-
-
-
-//==================================================================================================================//
-//==================================================================================================================//
-//==================================================================================================================//
-//==================================================================================================================//
-//==================================================================================================================//
-//==================================================================================================================//
-var ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split("");
-var charCodeArray = [];
-function transformWord(type, sentence, shiftNumber) {
-    var arraySentence = sentence.split("");
-    var encodeArray = [];
-    if (type == "ENCODE") {
-        for (let i = 0; i < arraySentence.length; i++) {
-            encodeArray[i] = String.fromCharCode(arraySentence[i].charCodeAt(0) - shiftNumber);
-        }
-        return encodeArray;
-    } else if (type == "DECODE") {
-        for (let i = 0; i < arraySentence.length; i++) {
-            encodeArray[i] = String.fromCharCode(arraySentence[i].charCodeAt(0) + shiftNumber);
-        }
-        return encodeArray;
-    } else {
-        console.log("Hatali Giris yaptiniz.");
+    while (dt <= last) {
+        arr.push(new Date(dt));
+        dt.setDate(dt.getDate() + 1);
     }
+    return arr;
+}
+let dateArr = getDateArray(firstDate, lastDate)
+
+ console.log(dateArr);
+
+for (var i = 0; i < dateArr.length ; i++) {
+     console.log( dateArr[i].getFullYear() + "-" + dateArr[i].getDate() + "-" + (dateArr[i].getMonth()+1)) ;  
 }
 
 
-function ceasarChiper() {
-    for (var i = 0; i < ALPHABET.length; i++) {
-        charCodeArray[i] = String.fromCharCode(ALPHABET[i].charCodeAt(0));
-        console.log(charCodeArray[i]);
-        console.log(ALPHABET[i].charCodeAt(0));
-    }
-}
-
-
-ceasarChiper()
-
-console.log(transformWord("ENCODE", "belin", 3));
-console.log(transformWord("encode", "helin", 3));
-console.log(transformWord("DECODE", "ebifk", 3));
-
-
-//  H  = E  
-//  E  = B
-//  L  = I
-//  I  = F
-//  N  = K
-
-//ödev: verilen cumlede rakam kontrulu programini yaz. shift oldugunda 97 i gecitignde 122 den devam edecek. ve tam tersi 
-//oldugundada kontrol edilecek.
-//alpabeyi map data yapaisini kllanrak yap bir onceki ornegi (set)
 //==================================================================================================================//
 //==================================================================================================================//
 //==================================================================================================================//
@@ -212,22 +28,129 @@ console.log(transformWord("DECODE", "ebifk", 3));
 //==================================================================================================================//
 //==================================================================================================================//
 
-// function fizzBuzz() {
-//     for (let i = 0; i < 100; i++) {
-//         if (i % 3 === 0 && i % 5 !== 0) {
-//             console.log("Fizz " + i);
-//         }  
+// function double(num) {
+//     return 2 * num + 5
+// };
 
-//         if (i % 5 === 0 && i % 3 !== 0) {
-//             console.log("Buzz " + i);
-//         }
+// function addFive(num2) {
+//     return (10 + 5) * num2;
+// };
 
-//         if (i % 3 === 0 && i % 5 === 0) {
-//             console.log("FizzBUZZ " + i);
+// console.log(double(10)); // => 25
+// console.log(addFive(2)); // => 30
+
+
+
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+
+
+
+
+// document.querySelector('button').addEventListener('click', function () {
+//     let inputSring = document.querySelector('input').value;
+//     let input = inputSring.replace(/\s+/g, '');
+//     var splited = [];
+//     if (input.includes("+")) {
+//         splited = input.split("+");
+//         console.log(parseInt(splited[0]) + parseInt(splited[1]));
+//     } else if (input.includes("-")) {
+//         splited = input.split("-");
+//         console.log(parseInt(splited[0]) - parseInt(splited[1]));
+//     } else if (input.includes("*")) {
+//         splited = input.split("*");
+//         console.log(parseInt(splited[0]) * parseInt(splited[1]));
+//     } else if (input.includes("/")) {
+//         splited = input.split("/");
+//         console.log(parseInt(splited[0]) / parseInt(splited[1]));
+//     }
+//     else {
+//         console.log("You have entered an incorrect number. Please check again.");
+//     }
+//     return splited;
+// });
+
+
+
+
+
+// var inputIdFirst = "valueOfX",inputIdSecond = "valueOfY",outputId = "resultHere";
+// var getInputs = function(id) {
+//   return parseInt(document.getElementById(id).value);
+// }
+// var showOutput = function(outputValue, outputIdAsArg) {
+//   //if no argument is given then by default "outputId" taken
+//   document.getElementById(outputId).innerHTML = outputValue;
+// }
+// var manuplateAs = function(operationName, valueOfX, valueOfY) {
+//   if(operationName == 'add')
+//     return valueOfX + valueOfY;
+//   else if(operationName == 'sub')
+//     return valueOfX - valueOfY;
+//   else if(operationName == 'mul')
+//     return valueOfX * valueOfY;
+//   else if(operationName == 'div')
+//     return valueOfX / valueOfY;
+//   //can add as many as you wish 
+// } 
+// var operation = function(operationName){
+//   x = getInputs(inputIdFirst);
+//   y = getInputs(inputIdSecond);
+//   output = manuplateAs(operationName, x, y);
+//   showOutput(output);
+//   console.log(x + " " + operationName + " " + y + " = " + output)
+//   //see console to understand this more
+//   console.log(this)
+// };
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+// function searchForMeaning(numbers) {
+//     for (let i = 0; i < numbers.length; i++) {
+//         if (numbers[i] === 42) {
+//             return "Meaning found at " + i;
+//         } 
+//     }
+//     return "Not found";
+// }
+
+// console.log(searchForMeaning([1, 5, 42, 99]));
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+// function lessThan10(value) {
+//     return value < 10;
+//    }
+//    function filter(arr, f) {
+//     let newArray = [];
+//     for (let x of arr) {
+//     if (f(x)) newArray.push(x);
+//     }
+//     return newArray;
+//    }
+//    console.log(filter([1, 2, 4, 20, 33], lessThan10));
+    
+// {
+// function lessThan10(numbers) {
+//     let nyArray = [];
+//     for (let i = 0; i < numbers.length; i++) {
+//         if (numbers[i] < 10) {
+//             nyArray.push(numbers[i]);
 //         }
 //     }
+//     return nyArray;
 // }
-// fizzBuzz()
+// console.log(lessThan10([1, 2, 4, 8, 16, 32]));
 //==================================================================================================================//
 //==================================================================================================================//
 //==================================================================================================================//
@@ -236,31 +159,33 @@ console.log(transformWord("DECODE", "ebifk", 3));
 //==================================================================================================================//
 
 
-// function powers(firstParam,secondParam){
-//     for (var i = 0; i < firstParam.length; i++ ){
-//         var numbers = firstParam[i];
-//         var result = Math.pow(numbers,secondParam);
-//      console.log(result);
+// function doubleAll(num) {
+//     return num.map(function (x) {
+//        return x * 2;
+//    });
+// }
+
+
+// function doubleAll(num) {
+//     let newArr = [];
+//     for (let i = 0; i < num.length; i++){
+//         
+//             newArr.push(num[i] *2 );
+// for (let x of arr)
+// newArray.push(x*2)
+//       
 //     }
 // }
-// function powers(numbers,powerCount){
-//     var power = [];
 
-//     for (var i = 0; i < numbers.length; i++ ){
-//         var totalMul = 1;
-//         for(var j=0; j < powerCount; j++ ){
-//             totalMul = totalMul * numbers[i];
-//         }
-//         power[i] = totalMul;
 
-//     } return power;
+// function doubleAll(num) {
+//     return num.reduce(function (accumulator, currentValue) {
+//        return accumulator  + currentValue;
+//    },0);
 // }
 
-//  console.log(powers([1,2,3] , 2));
 
-
-// 20 tane degisik array ve ikinci paramet ile debug yapilcak.
-// yukaridaki fonksiyonu- toplama ile kullan.
+//  console.log(doubleAll([2, 4, 6]));
 //==================================================================================================================//
 //==================================================================================================================//
 //==================================================================================================================//
@@ -269,28 +194,89 @@ console.log(transformWord("DECODE", "ebifk", 3));
 //==================================================================================================================//
 
 
-// function isSubArray(mainArray, subArray) {
-//     var isArray = false;
-//     for (let i = 0; i < subArray.length; i++) {
-//         isArray = false;
-//         for (let j = 0; j < mainArray.length; j++) {
-//             if (mainArray[j] == subArray[i]) {
-//                 isArray = true;
-//                 break;
-//             }
+// function myFunc1(y) {
+//     console.log("after wait log");
+//     y();
+// };
+
+// function myFunc2(x) {
+//     console.log("2sec wait");
+//     x();
+// };
+// function myFunc3(z) {
+//     console.log("4sec");
+//     z()
+// }
+
+// setTimeout(function myFunc3() {
+//     myfunc3(myFunc2(myFunc1));
+
+// }, 2000);
+
+
+// function callbackFunction () {
+//     console.log("I was run after delayed function" );
+//     }
+// function delayedFunction (cb) {
+//     console.log("I waited 2 seconds before doing this" );
+//     setTimeout(function() {cb();
+//         }, 2000);
+//         console.log("After timeout" );
+
+//     }
+
+//     console.log("I will call functions 2 seconds later" );
+//  setTimeout(function() {
+//     delayedFunction(callbackFunction);
+//     }, 2000);
+
+//     console.log("final termi");
+    
+
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+
+// function mean(myArr) {
+
+//     var total = myArr.reduce(function (acc, currentValue) {
+//         return acc + currentValue;
+//     });
+//     return total / myArr.length;
+// }
+
+
+// console.log(mean([1, 2, 3, 4, 5, 6]));
+
+
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+//==================================================================================================================//
+
+// function wordCount(words) {
+//     let splited = words.split(" ");
+//     var bananaCount = 0;
+//     var carrotCount = 0;
+//     for (let i = 0; i < splited.length; i++) {
+//         if (splited[i] === "Banana") {
+//             bananaCount ++;
+
 //         }
-//         if (isArray == false) {
-//             break;
+//         if (splited[i] === "Carrot") {
+//             carrotCount ++;
+
 //         }
 //     }
-//     return isArray;
-// }
+//     let myObj = {"banana":bananaCount,"carrot":carrotCount};
+//     return myObj;
 
-// console.log(isSubArray([1, 2, 3, 4, 5], [2, 4]));
-// console.log(isSubArray([1, 2, 3, 4, 5], [2, 6]));
-//==================================================================================================================//
-//==================================================================================================================//
-//==================================================================================================================//
-//==================================================================================================================//
-//==================================================================================================================//
-//==================================================================================================================//
+
+// }
+// console.log(wordCount("Banana Carrot Banana"));
+
